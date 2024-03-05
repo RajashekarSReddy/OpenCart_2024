@@ -1,42 +1,58 @@
 package pageObjects;
 
+
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class LogInPage extends BasePage{
+public class LoginPage extends BasePage {
 
-	public LogInPage(WebDriver driver) {
+	public LoginPage(WebDriver driver) {
 		super(driver);
-		}
-@FindBy(xpath= "//input[@id='input-email']")
-WebElement address;
+		// TODO Auto-generated constructor stub
+	}
+	@FindBy(xpath="//input[@id='input-email']")
+	WebElement email;
+	
+	@FindBy(xpath="//input[@id='input-password']")
+	WebElement password;
+	
+	@FindBy(xpath="//button[normalize-space()='Login']")
+	WebElement continueLogin;
+	
+	@FindBy(xpath="//a[normalize-space()='Continue']")
+	WebElement continueRegister;
+	
+	@FindBy(xpath="//h2[normalize-space()='My Account']")
+	WebElement Textverify;
+	
+	
+public void sendLoginEmail(String mail)
+	 {
+email.sendKeys(mail);
 
-@FindBy(xpath="//input[@id='input-password']")
-WebElement password;
-
-@FindBy(xpath="//button[normalize-space()='Login']")
-WebElement logIn;
-
-public void sendAddress(String email) {
-	address.sendKeys(email);
+}
+public void sendLoginPassword(String pword) {
+password.sendKeys(pword);
 }
 
-public void sendPassword(String pw) {
-	password.sendKeys(pw);
+public void ClickcontinueLogin() {
+continueLogin.click();
 }
 
-public void selectLogIn() {
-	logIn.click();
+public void ClickcontinueRegister() {
+continueRegister.click();
 }
+
 public String teXtVerify()
 {
-	try {
-	return(driver.getTitle());
-	}
-	catch(Exception e) {
-		return (e.getMessage());
-			
+try {
+return(driver.getTitle());
 }
-}
+catch(Exception e) {
+	return (e.getMessage());
+		
+
+}	}
 }

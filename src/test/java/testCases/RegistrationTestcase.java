@@ -1,53 +1,39 @@
 package testCases;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+
 import org.testng.annotations.Test;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import pageObjects.HomePage;
 import pageObjects.RegisterPage;
+import testBase.BaseClass;
 
-public class RegistrationTestcase {
-	public WebDriver driver;
-	@Test(priority=1)
-	public void OpenBrowser() {
-		//WebDriverManager.chromedriver().setup();
-		driver=new ChromeDriver();
-	}
-	@Test(priority=2)
-	public void launchApp() {
-		driver.get("http://localhost/opencart/upload/");
-	}
+public class RegistrationTestCase extends BaseClass{
+
 	@Test(priority=3)
 	public void register() throws InterruptedException {
-		HomePage hp=new HomePage(driver);
-		hp.clickOnMyAccount();
-		Thread.sleep(2000);
 		
+		logger.info("starting registration testcase");
+		HomePage hp=new HomePage(driver);
+		logger.info("clicking on my account");
+		hp.ClickOnMyAccount();
+		Thread.sleep(2000);
+		logger.info("clicking on register");
 		hp.clickOnRegister();
 		Thread.sleep(2000);
-		
+		logger.info("entering the credentias");
 		RegisterPage rp=new RegisterPage(driver);
 		Thread.sleep(2000);
-		
-		rp.sendFirstName("asd");
+		rp.sendFirstName("ab");
 		Thread.sleep(2000);
-		
-	    rp.sendLastName("h");
+	    rp.sendLastName("hs");
 	    Thread.sleep(2000);
-	    
-	    rp.sendEmail("hy@gmail.com");
+	    rp.sendEmail("ab@gmail.com");
 	    Thread.sleep(2000);
-	    
-         rp.sendPasword("12456");
+         rp.sendPasword("1234");
          Thread.sleep(2000);
-         
          rp.selectAgree();
          Thread.sleep(3000);
-         
          rp.ClickContinue();
-		
-	}
-
+			logger.info("registration testcase is completed");
+}
 }

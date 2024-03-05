@@ -1,5 +1,7 @@
 package pageObjects;
 
+
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -17,18 +19,22 @@ public class HomePage extends BasePage{
 	
 	@FindBy(xpath="//a[normalize-space()='Register']")
 	WebElement register;
-	  
+	
 	@FindBy(xpath="//a[normalize-space()='Login']")
 	WebElement login;
-	public void clickOnMyAccount() {
-	myAccount.click(); 
+	  
+	public void ClickOnMyAccount() {
+	myAccount.click();
 	}
 	
 	public void clickOnRegister() {
 		register.click();
 	
 	}
-public  void clickonLogin() {
-	login.click();
-}
+	
+	public void clickOnLogin() {
+		login.click();
+	
+	}
+
 }
